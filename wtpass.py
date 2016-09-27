@@ -83,11 +83,13 @@ elif args.decrypt:
         out.write(decrypted)
     print("your file have been decrypted")
 
-# print all keys
+# print all keys (sorted)
 elif args.keys:
     passes_jsn = read_decrypt()
-    for key in passes_jsn["data"]:
-        print(key)
+    keys_lst = list(passes_jsn["data"].keys())
+    keys_lst.sort()
+    for k in keys_lst:
+        print(k)
 
 # generate a new pass by openssl
 elif args.generate:
